@@ -18,10 +18,11 @@ class TelegramClient:
     def __init__(self) -> None:
         self._base = f"https://api.telegram.org/bot{settings.telegram_bot_token}"
         self._client = httpx.Client(
+            proxy=settings.proxy_url,
             timeout=httpx.Timeout(
                 timeout=settings.telegram_http_timeout_seconds,
                 connect=settings.telegram_http_connect_timeout_seconds,
-            )
+            ),
         )
 
     def send_message(

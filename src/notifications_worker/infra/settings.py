@@ -23,6 +23,9 @@ class Settings(BaseSettings):
     telegram_http_timeout_seconds: float = 10.0
     telegram_http_connect_timeout_seconds: float = 5.0
 
+    # Proxy (optional, e.g. socks5://host:port)
+    proxy_url: str | None = None
+
     # s3
     s3_endpoint: str
     s3_access_key: str
